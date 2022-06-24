@@ -30,11 +30,6 @@ by [Yueming Jin](https://yuemingjin.github.io/), Yang Yu, [Cheng Chen](https://s
    - sklearn
    ```
 
-* Clone this repo
-    ```shell
-    git clone https://github.com/YuemingJin/STswinCL
-    ```
-
 * Training process
 
 1. Training Transformer based segmentation model (Intra-video)
