@@ -15,11 +15,12 @@ by [Yueming Jin](https://yuemingjin.github.io/), Yang Yu, [Cheng Chen](https://s
 
 ## Results
 
-* More visual results can be found in this [video](https://yuemingjin.github.io/video/2022TMI.mp4)
+* More visual results can be found in this [video](https://yuemingjin.github.io/video/2022TMI.mp4).
 
 ## Usage
 
 ### Check dependencies:
+
    ```
    - pytorch 1.8.0
    - opencv-python
@@ -29,7 +30,6 @@ by [Yueming Jin](https://yuemingjin.github.io/), Yang Yu, [Cheng Chen](https://s
    - numpy
    - sklearn
    ```
-
 ### Training process
 
 1. Training Transformer based segmentation model (Intra-video)
