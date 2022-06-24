@@ -19,7 +19,7 @@ by [Yueming Jin](https://yuemingjin.github.io/), Yang Yu, [Cheng Chen](https://s
 
 ## Usage
 
-* Check dependencies:
+### Check dependencies:
    ```
    - pytorch 1.8.0
    - opencv-python
@@ -30,7 +30,7 @@ by [Yueming Jin](https://yuemingjin.github.io/), Yang Yu, [Cheng Chen](https://s
    - sklearn
    ```
 
-* Training process
+### Training process
 
 1. Training Transformer based segmentation model (Intra-video)
 
@@ -51,7 +51,7 @@ by [Yueming Jin](https://yuemingjin.github.io/), Yang Yu, [Cheng Chen](https://s
 * Use ``$ python train_CL_ft_mswin_sgd_minput.py`` to start the training; parameter setting and training script refer to ``exp.sh``
 
 
-## Test & Visualization
+### Test & Visualization
 
 * Use ``$ python test.py`` to test; parameter setting and script can refer to ``exp.sh``
 
