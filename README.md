@@ -70,7 +70,7 @@ Here, we take EndoVis18 as the example. The usage for CaDIS is similar.
 
 
 ## Citation
-If this repository is useful for your research, please consider citing:
+
 ```
 @ARTICLE{9779714,
   author={Jin, Yueming and Yu, Yang and Chen, Cheng and Zhao, Zixu and Heng, Pheng-Ann and Stoyanov, Danail},
