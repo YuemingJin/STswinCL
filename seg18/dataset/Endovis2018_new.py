@@ -61,7 +61,6 @@ class endovis2018(Dataset):
     def __getitem__(self, idx):
         ins, frame = self.images[idx]
         images, label = self._load_data(ins, frame, self.t, self.global_n)
-#         print(np.unique(label), images[0].shape, label.shape)
         images = np.array(images).astype('uint8')
 
 
@@ -75,9 +74,7 @@ class endovis2018(Dataset):
 #                 A.HorizontalFlip(p=0.5),
                 A.VerticalFlip(p=0.5),
                 A.RandomBrightnessContrast(p=0.5),
-                # A.HueSaturationValue(p=0.5),
                 A.Rotate()
-                # A.ColorJitter(p=0.5)
             ])
             
             tsf = transf(image=images, mask=label)
@@ -85,8 +82,6 @@ class endovis2018(Dataset):
             images = tsf['image'].reshape(self.crop_size['h'], self.crop_size['w'],t,c)
             images =  np.ascontiguousarray(images.transpose((2,0,1,3)), dtype='float')
             label = tsf['mask']
-#             print(images.shape, np.unique(label))
-
 
 
         #==========image and label=========
@@ -143,28 +138,17 @@ class endovis2018(Dataset):
         elif self.mode == 'train':
             masks = Image.open(r_lb.format(ins, frame))
             masks = masks.resize((self.crop_size['w'], self.crop_size['h']), Image.NEAREST)
-            #print('mask_size:',masks.size)
-            #print('img_len:', len(imgs))
-            #print('img_size:', imgs[0].size)
-            # imgs = [np.array(i) for i in imgs]
-            # masks = np.array(masks)
-            # for i in range(len(imgs)):
-            #     cv2.imwrite('../code_18_yu/inputvisualcheck/{}_image.png'.format(i), imgs[i])
-            # cv2.imwrite('../code_18_yu/inputvisualcheck/mask.png', masks)
-            # print(imgs[0].shape, masks.shape)
-            # print(1 + '1')
             imgs, masks = self._random_scale(imgs, masks)
 
         return imgs, masks.astype('uint8')
 
-    def _random_scale(self, imgs, mask): #训练集的图片和标签做变换base_size_w = 276
+    def _random_scale(self, imgs, mask):
         base_size_w = self.base_size['w']
         crop_size_w = self.crop_size['w']
         crop_size_h = self.crop_size['h']
         # random scale (short edge)
 
         w, h = imgs[0].size
-        #print(w,h) #480,270
 
         long_size = random.randint(int(base_size_w*0.5), int(base_size_w*2.0))
         if h > w:
@@ -272,10 +256,4 @@ def togray():
 
 if __name__ == '__main__':
     togray()
-#    from fire import Fire
-#     Fire()
-#     loader = endovis2018('valid')
-#     for d in loader:
-# #         print(d['image'].shape,d['image'].max(),d['image'].min())
-#         print(d['label'].shape)
-#         break
+
