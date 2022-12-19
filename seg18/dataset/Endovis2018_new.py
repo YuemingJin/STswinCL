@@ -15,13 +15,8 @@ import os
 
 LABEL_JSON = '../2018data/ead2018/train/labels.json'
 DATA_ROOT = '../2018data/ead2018/'
-#LABEL_JSON = '/research/d6/rshr/ymjin/F1_scene/2018data/ead2018/train/labels.json'
-#DATA_ROOT = '/research/d6/rshr/ymjin/F1_scene/2018data/ead2018/'
-# Training_Path = DATA_ROOT + 'Processed_train'
-# Testing_Path = DATA_ROOT + 'Processed_test'
 
-Procedures = {'train':[1,3,4,6,7,9,10,11,13,14,15,16],'valid':[2,5,12]}
-# Procedures = {'train':[1,3,4,6,7,9,10,11,13,14,15,16],'valid':[1,5,12]}
+Procedures = {'train':[1,2,3,4,5,6,7,9,10,11,12,13,14,15,16]}
 
 class endovis2018(Dataset):
 
@@ -38,17 +33,14 @@ class endovis2018(Dataset):
         self.rate = rate
         self.arch = arch
         if self.arch == 'swinPlus':
-            self.base_size = {'h': 540, 'w': 672} # 'h': 270, 'w': 480
-            self.crop_size = {'h': 512, 'w': 640} #'h': 256, 'w': 448
-            #self.base_size = {'h': 512, 'w': 640} # 'h': 270, 'w': 480
-            #self.crop_size = {'h': 448, 'w': 576} #'h': 256, 'w': 448
+            self.base_size = {'h': 540, 'w': 672} 
+            self.crop_size = {'h': 512, 'w': 640} 
         else:
             self.im_size = {'h': 512, 'w': 640}
 
         if self.mode == 'train':
             train_images = [[f,i] for i in range(149) for f in Procedures['train']]
-            valid_images = [[f,i] for i in range(149) for f in Procedures['valid']]
-            self.images = train_images + valid_images
+            self.images = train_images
 
         self.test = (split =='test')
         if self.test:
