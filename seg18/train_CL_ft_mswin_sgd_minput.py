@@ -12,12 +12,7 @@ scaler = amp.GradScaler()
 
 import cv2
 
-# from net.MobileNetRefine.mobilenet import mbv2
-# from net.MobileNetRefine.resnet import rf_lw50,rf_lw101
-# from net.HRNet.hrnet import get_hrnet
-# from net.PSPNet_PyTorch.pspnet import PSPNet
 from net.Ours.base import DeepLabV3,DeepLabV3Plus
-from net.Ours.base import TemporalNet
 
 from utils.losses import BCELoss,OhemCELoss2D,DiceLoss
 from utils.lr_scheduler import LR_Scheduler_Head
