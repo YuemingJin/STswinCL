@@ -12,7 +12,7 @@ scaler = amp.GradScaler()
 
 import cv2
 
-from net.Ours.base import DeepLabV3,DeepLabV3Plus
+from net.Ours.base18 import DeepLabV3Plus
 
 from utils.losses import BCELoss,OhemCELoss2D,DiceLoss
 from utils.lr_scheduler import LR_Scheduler_Head
