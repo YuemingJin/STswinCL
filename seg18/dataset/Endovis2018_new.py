@@ -184,13 +184,6 @@ class endovis2018(Dataset):
 
 # ----------------------------------------------------------------------------
 
-# python -m dataset.Endovis2018 resize_dataset \
-# -src="/raid/wjc/data/ead/ead2018/train" \
-# -spt="/raid/wjc/data/ead/ead2018/Processed_train"
-
-# python -m dataset.Endovis2018 resize_dataset \
-# -src="/data3/zl/evs2018rss_raw/test" \
-# -spt="/data3/zl/evs2018rss_resize/test"
 
 def resize_dataset(src, spt):
 
