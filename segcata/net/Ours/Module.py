@@ -6,9 +6,7 @@ sys.path.insert(0,'/raid/wjc/code/RealtimeSegmentation/')
 
 from net.utils.helpers import maybe_download
 from net.utils.layer_factory import conv1x1, conv3x3, convbnrelu, CRPBlock
-from net.LSTM.torch_convlstm import ConvLSTM
-from net.LSTM.bottlenecklstm import BottleneckLSTM
-from net.LSTM.grouplstm import GroupLSTM
+
 
 data_info = {21: "VOC"}
 
@@ -27,19 +25,6 @@ class TimeProcesser(nn.Module):
         self.batch_size = batch_size
         if not inplanes==planes:
             self.refine = conv1x1(planes, inplanes)
-        if self.tag == 'convlstm':
-            self.processer = ConvLSTM(input_size=size,
-                     input_dim=inplanes,
-                     hidden_dim=[planes],
-                     kernel_size=(3, 3),
-                     num_layers=1,
-                     batch_first=True,
-                     bias=True,
-                     return_all_layers=False)
-        elif self.tag == 'btnlstm':
-            self.processer = BottleneckLSTM(inplanes, planes, size[0], size[1])
-        elif self.tag == 'group':
-            self.processer = GroupLSTM(inplanes, planes, size[0], size[1], group)
         else:
             pass
     def forward(self, x):
